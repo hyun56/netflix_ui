@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_ui/screen/home_screen.dart';
+import 'package:netflix_ui/screen/like_screen.dart';
 import 'package:netflix_ui/screen/more_screen.dart';
 import 'package:netflix_ui/screen/search_screen.dart';
 import 'package:netflix_ui/widget/bottom_bar.dart';
@@ -34,23 +35,19 @@ class _MyAppState extends State<MyApp> {
         ),
         // colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.white),
       ),
-      home: DefaultTabController(
+      home: const DefaultTabController(
         length: 4,
         child: Scaffold(
           body: TabBarView(
-            physics: const NeverScrollableScrollPhysics(),
+            physics: NeverScrollableScrollPhysics(),
             children: [
-              const HomeScreen(),
-              const SearchScreen(),
-              Container(
-                child: const Center(
-                  child: Text('save'),
-                ),
-              ),
-              const MoreScreen(),
+              HomeScreen(),
+              SearchScreen(),
+              LikeScreen(),
+              MoreScreen(),
             ],
           ),
-          bottomNavigationBar: const Bottom(),
+          bottomNavigationBar: Bottom(),
         ),
       ),
     );
